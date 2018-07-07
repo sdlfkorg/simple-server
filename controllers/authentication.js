@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 exports.signup = function(req, res, next){
 	const email = req.body.email;
-	const passwrod = req.body.passwrod;
+	const password = req.body.password;
 
 	// see if a user with the given email exists
 	User.findOne({ email: email}, function(err, existingUser){
@@ -20,7 +20,7 @@ exports.signup = function(req, res, next){
 
 		const user = new User({
 			email: email,
-			passwrod: passwrod
+			password: password
 		})
 
 		user.save(function(err){
